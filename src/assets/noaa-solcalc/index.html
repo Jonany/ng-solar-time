@@ -1,0 +1,1667 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <meta name="DC.language" content="EN-US" >
+    <meta name="DC.creator" content="US Department of Commerce, NOAA, Global Monitoring Laboratory" >
+
+    
+    <meta name="DC.date.created"  content="2005-10-01" >
+    <meta name="DC.date.reviewed" content="2021-04-10" >
+
+
+    <meta name="keywords" content="noaa, national oceanic and atmospheric administration, earth system research, esrl, gml, gmd, climate, air quality, numerical modeling, global warming, climate change, ozone, co2, aerosols">
+
+
+    <meta name="description" content="The Global Monitoring Laboratory conducts research on greenhouse gas and carbon cycle feedbacks, changes in clouds, aerosols, and surface radiation, and recovery of stratospheric ozone. ">
+    <meta name="DC.description" content="The Global Monitoring Laboratory conducts research on greenhouse gas and carbon cycle feedbacks, changes in clouds, aerosols, and surface radiation, and recovery of stratospheric ozone. ">
+
+
+
+
+    <title>ESRL Global Monitoring Laboratory - Global Radiation and Aerosols</title>
+    <meta name="DC.title" content="ESRL Global Monitoring Laboratory - Global Radiation and Aerosols" >
+
+
+
+    <!-- Bootstrap -->
+<!--
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+-->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- more css -->
+    <link href="/css/gmd.css" rel="stylesheet" media="all">
+    <link href="/css/header.css" rel="stylesheet" media="all">
+    <link href="/css/footer.css" rel="stylesheet" media="all">
+    <link href="/css/colors.css" rel="stylesheet" media="all">
+    <!--    <link href="/css/buttons.css" rel="stylesheet" media="all"> -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!--<link href="/css/collapse.css" rel="stylesheet" media="all"> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+      <script src="/js/respond.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!--
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+-->
+
+    <script src="/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    
+<div id="major_header">
+
+    <div id="search" class="d-none d-md-block float-right">
+        <form action="https://search.usa.gov/search">
+	    <div class="form-group mb-1">
+		<input type="hidden" name="affiliate" value="noaa_esrl_gmd">
+		<input type="hidden" name="v:project" value="firstgov" >
+		<div class="input-group mb-1">
+		    <input type="text" name="query" id="query-field" autocomplete="off" class='form-control input-xs' placeholder="Search GML...">
+		    <div class="input-group-append">
+			<button type="submit" id='searchbutton' class="btn btn-secondary btn-sm"><i class="fa fa-search"></i><span class='sr-only'>Search</span></button>
+		    </div>
+		    <label for="query-field" class="sr-only"> Search GML:</label>
+		</div>
+	    </div>
+        </form>
+    </div>
+
+    <a href="http://www.noaa.gov" title="NOAA">
+        <img src="/webdata/logos/noaa_small.png" class="header_logo" alt='noaa logo'>
+    </a>
+
+    <div id='navbar-brand-title'>
+	<a href="/" title="GML" class="lab">Global Monitoring Laboratory</a><br>
+	<a href="https://www.esrl.noaa.gov" title="ESRL Home Page" class="division" >Earth System Research Laboratories</a>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+    
+<nav class="navbar navbar-gmd navbar-expand-lg navbar-dark sticky-top">
+  <a class="navbar-brand d-lg-none" href="#">Menu</a> 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+<div class="container">
+
+  <div id="navbarNavDropdown" class="collapse navbar-collapse majornav">
+    <ul class="navbar-nav ml-auto mr-auto">
+
+	<li class="nav-item">
+<a href="/" class='nav-link' title='GML Home Page'>
+<span class='fa fa-home'></span><span class='d-lg-none'> Home</span>
+</a>
+</li>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" id="navbarabout" data-toggle="dropdown">About</a>
+		 <div class="dropdown-menu shadow collapse" aria-labelledby="navbarabout">
+			<a href="/about/aboutgml.html" class="dropdown-item">About GML</a>
+			<a href="/about/deia.html" class="dropdown-item">Diversity, Equity, and Inclusion</a>
+			<a class="dropdown-item" href="/review/">Science Reviews</a>
+			<a class="dropdown-item" href="/safety/">Safety Program</a>
+			<a href="http://www.esrl.noaa.gov/about/jobs.html" class="dropdown-item">Employment</a>
+			<a href="https://www.boulder.noaa.gov/" class="dropdown-item">Visiting</a>
+			<a href="/about/contacts.html" class="dropdown-item">Contact Us</a>
+			<!--			<a href="https://sites.google.com/a/noaa.gov/oar-esrl-gmd-intranet/"  class="dropdown-item">Intranet</a> -->
+			<a href="https://sites.google.com/noaa.gov/oar-gml-intranet/home"  class="dropdown-item">Intranet</a>
+		</div>
+	</li>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" id="navbarpeople" data-toggle="dropdown">People</a>
+		 <div class="dropdown-menu shadow collapse" aria-labelledby="navbarpeople">
+			<a href="/about/orgchart.html" class="dropdown-item">Organization</a>
+			<a href="/about/stafflist.html" class="dropdown-item">Staff</a>
+			<a href="/about/stafflist_group.html" class="dropdown-item">Staff by Group</a>
+			<a href="/about/employees.html" class="dropdown-item">Employee Spotlight</a>
+		</div>
+	</li>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" id="navbarresearch" data-toggle="dropdown">Research</a>
+		<div class="dropdown-menu shadow" aria-labelledby="navbarresearch">
+			<a class="dropdown-item" href="/about/research.html">Research Overview</a>
+			<a class="dropdown-item" href="/ccgg/">Greenhouse Gases</a>
+			<a class="dropdown-item" href="/hats/">Halocarbons and Trace Gases</a>
+			<a class="dropdown-item" href="/ozwv/">Ozone and Water Vapor</a>
+			<a class="dropdown-item" href="/grad/">Global Radiation and Aerosols</a>
+			<a class="dropdown-item" href="/publications/">Publications</a>
+		</div>
+	</li>
+
+	<li class="nav-item dropdown mega-dropdown">
+		<a href="#" class="nav-link dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Observing Networks</a>
+		<div class="dropdown-menu shadow mega-dropdown-menu wide-menu">
+<div class="row">
+<div class="col-12 col-lg-3 bro">
+			<span class="menu-header">Overview</span>
+	<a class="dropdown-item" href="/about/networks.html">Observations Overview</a>
+	<a class="dropdown-item" href="/dv/site/">Measurement Sites</a>
+			<a class="dropdown-item" href="/about/campaigns.html">Field Campaigns</a>	
+</div>
+		<div class="col-12 col-lg-4 bro">
+			<span class="menu-header">Atmospheric Baseline Observatories</span>
+			<a class="dropdown-item" href="/obop/">Observatory Operations</a>
+			<a class="dropdown-item" href="/obop/brw/">Barrow, Alaska</a>
+			<a class="dropdown-item" href="/obop/mlo/">Mauna Loa, Hawaii</a>
+			<a class="dropdown-item" href="/obop/smo/">American Samoa</a>
+			<a class="dropdown-item" href="/obop/spo/">South Pole</a>
+		</div>
+		<div class="col-12 col-lg-5">
+			<span class="menu-header">Observing Networks</span>
+			<a class="dropdown-item" href="/ccgg/about.html">Global Greenhouse Gas Reference Network</a>
+			<a class="dropdown-item" href="/hats/flask/flasks.html">Halocarbons and Trace Gases</a>
+			<a class="dropdown-item" href="/grad/field.html">Surface Radiation</a>
+			<a class="dropdown-item" href="/aero/net/">Federated Aerosol Network</a>
+			<a class="dropdown-item" href="/ozwv/network.php">Ozone</a>
+			<a class="dropdown-item" href="/ozwv/wvap">Water Vapor</a>
+		</div>
+</div>
+</div>
+
+        </li>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" id="navbardata" data-toggle="dropdown">Data</a>
+		<div class="dropdown-menu shadow" aria-labelledby="navbarpeople">
+			<span class="menu-header ml-2">Data</span>
+			<a class="dropdown-item" href="/aftp/data/">Browse Data Archive</a>
+			<a class="dropdown-item" href="/dv/data/">Search for Data</a>
+			<a class="dropdown-item" href="/dv/data.html">Data by Research Program</a>
+			<a class="dropdown-item" href="/dv/site/">Measurement Sites</a>
+			<a class="dropdown-item" href="/ccgg/obspack/">ObsPack</a>
+			<span class="menu-header ml-2">Tools</span>
+			<a class="dropdown-item" href="/dv/iadv/">Data Viewer</a>
+			<a class="dropdown-item" href="/grad/solcalc/">Solar Calculator</a>
+			<span class="menu-header ml-2">Visualization</span>
+			<a class="dropdown-item" href="/dv/visualize.html">Data Visualization Pages</a>
+			<a class="dropdown-item" href="/dv/spo_oz/">South Pole Ozone Hole</a>
+		</div>
+        </li>
+
+	<li class="nav-item dropdown mega-dropdown">
+		<a href="#" class="nav-link dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Products</a>
+		
+<div class="dropdown-menu shadow mega-dropdown-menu">
+    <div class="row">
+        <div class="col bro">
+            <span class="menu-header ml-2">Products</span>
+            <a class="dropdown-item" href="/aggi/">Greenhouse Gas Index</a>
+            <a class="dropdown-item" href="/odgi/">Ozone Depletion Index</a>
+            <a class="dropdown-item" href="/ccgg/ghgpower/">Power of Greenhouse Gases</a>
+            <a class="dropdown-item" href="/ccgg/trends/">Trends in CO<sub>2</sub>, CH<sub>4</sub>, N<sub>2</sub>O, SF<sub>6</sub></a>
+            <a class="dropdown-item" href="/ccgg/carbontracker/">CarbonTracker</a>
+            <a class="dropdown-item" href="/ccgg/obspack/">ObsPack</a>
+            <a class="dropdown-item" href="/grad/mloapt.html">Mauna Loa Apparent Transmission</a>
+            <a class="dropdown-item" href="/grad/snomelt.html">Barrow Snow Melt Dates</a>
+	    <a class="dropdown-item" href="/dv/spo_oz/">South Pole Ozone Hole</a>
+        </div>
+        <div class="col">
+            <span class="menu-header ml-2">Calibration Facilities</span>
+	    <a class="dropdown-item" href="/ccl/">WMO Central Calibration Laboratory</a>
+	    <a class="dropdown-item" href="/grad/calfacil/">Central UV Calibration Facility</a>
+	    <a class="dropdown-item" href="/grad/srf.html">Broadband Solar Calibration Facility</a>
+	    <a class="dropdown-item" href="/ozwv/dobson/">World Dobson Ozone Calibration Centre</a>
+        </div>
+    </div>
+</div>
+
+        </li>
+
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Information</a>
+    
+		<div class="dropdown-menu shadow dropdown-menu-right">
+			<a class="dropdown-item" href="/news/">News</a>
+			<a class="dropdown-item" href="/about/seminars.php">Seminars</a>
+			<a class="dropdown-item" href="/education/">Education/Outreach</a>
+			<a class="dropdown-item" href="/interns/">Student Opportunities</a>
+			<a class="dropdown-item" href="/education/faq_cat-1.html">FAQ's</a>
+			<a class="dropdown-item" href="/publications/">Publications</a>
+
+                        <span class="menu-header">Webcams</span>
+                        <a class="dropdown-item" href="/obop/spo/livecamera.html">South Pole Webcam</a>
+                        <a class="dropdown-item" href="/obop/mlo/livecam/livecam.html">Mauna Loa Webcams</a>
+                        <a class="dropdown-item" href="/obop/brw/livecamera.html">Barrow Webcam</a>
+
+			<span class="menu-header">Global Monitoring Annual Conference</span>
+			<a class="dropdown-item" href="/gmac/">
+				<div class="media">
+					<img class="mr-1 mt-1" src="/images/gmac_logo_vsmall.png" alt="GMAC">
+					<div class="media-body">
+						The 49<sup>th</sup> Conference was held online May 24 - 28, 2021
+					</div>
+				</div>
+			</a>
+		</div>
+	</li>
+
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+
+
+    <div class="container">
+
+
+
+	
+
+
+
+    <nav class="navbar navbar-expand">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+		<a href="/grad/">
+		<span class="fa fa-home"></span>
+		<span class='d-none d-md-inline'>Global Radiation and Aerosols</span>
+		<span class='d-md-none'>GRAD</span>
+		</a>
+	</li>
+
+	
+
+        <li class="breadcrumb-item active">Solar Calculator</li>
+    </ol>
+
+    
+<ul class="nav navbar-nav ml-auto subnav">
+
+    <li class="nav-item dropdown mega-dropdown">
+        <button class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown">
+                GRAD Menu <b class="caret"></b>
+        </button>
+
+<div class="dropdown-menu dropdown-menu-right group-dropdown-menu shadow">
+
+	<div class="row">
+		<div class="text-center ml-2 ml-lg-3">
+			<a class="btn btn-gml-icon" href="/grad/">
+			<i class="fas fa-home"></i>
+			<div class="icon-label">Home</div></a>
+		</div>
+		<div class="text-center">
+			<a class="btn btn-gml-icon" href="/dv/site/index.php?program=grad">
+			<i class="fas fa-globe-americas"></i>
+			<div class="icon-label">Sites</div></a>
+		</div>
+		<div class="text-center">
+			<a class="btn btn-gml-icon" href="/dv/data/index.php?category=Radiation,Aerosols">
+			<i class="fas fa-database"></i>
+			<div class='icon-label'>Datasets</div></a>
+		</div>					
+		<div class="text-center">
+			<a class="btn btn-gml-icon" href="/dv/iadv/?map_program=grad">
+			<i class="fas fa-chart-line"></i>
+			 <div class='icon-label'>Data Viewer</div></a>
+		</div>
+		<div class="text-center">
+			<a class="btn btn-gml-icon" href="/bin/news.php?code=grad">
+			<i class="fas fa-newspaper"></i>
+			 <div class='icon-label'>News</div></a>
+		</div>
+	</div><!--/.row-->
+
+
+    <div class="row no-gutters">
+        <div class="col">
+		<span class="menu-header ml-2">Networks</span>
+		<a class='dropdown-item' href='/aero/net/stations.html'>Aerosol Network</a>
+		<a class='dropdown-item' href="/grad/bsrn.html">Baseline Network</a>
+		<a class='dropdown-item' href="/grad/surfrad/index.html">SURFRAD Network</a>
+		<a class='dropdown-item' href="/grad/solrad/index.html">SOLRAD Network</a>
+		<a class='dropdown-item' href="http://gml.noaa.gov/grad/neubrew/">NEUBrew Network</a>
+		<a class='dropdown-item' href="http://gml.noaa.gov/grad/antuv/">Antarctic UV Network</a>
+	</div>
+
+        <div class="col">
+		<span class="menu-header ml-2">Data</span>
+            <a class="dropdown-item" href="/grad/surfrad/dataplot.html">SURFRAD Data Plots</a>
+            <a class="dropdown-item" href="/grad/solrad/dataplot.html">SOLRAD Data Plots</a>
+            <a class="dropdown-item" href="/grad/baseline/dataplot.html">Baseline Radiation Plots</a>
+            <a class="dropdown-item" href="/aero/net/getplot.php">Recent Aerosol Plots</a>
+            <a class="dropdown-item" href="/grad/obs/obsplot.php">Recent Radiation Plots</a>
+            <a class="dropdown-item" href="/dv/data.html">Data Archive</a>
+	</div>
+
+        <div class="col">
+		<span class="menu-header ml-2">Research</span>
+                <a class="dropdown-item" href='/grad/solcalc/'>Solar Calculator</a>
+		<a class='dropdown-item' href="/grad/mloapt.html">MLO Apparent Transmission</a>
+		<a class='dropdown-item' href="/grad/wfip.html">Wind Forecasting (WFIP-2)</a>
+		<a class='dropdown-item' href="/grad/cpex.html">Cloud Properties Experiment (CPEX)</a>
+		<a class='dropdown-item' href="/grad/pacificarctic.html">Pacific Arctic Climate</a>
+		<a class='dropdown-item' href="/grad/snomelt.html">Barrow's Annual Snow Cycle</a>
+	</div>
+
+        <div class="col">
+		<span class="menu-header ml-2">Instrumentation</span>
+		<a class='dropdown-item' href='/aero/instrumentation/instrum.html'>Aerosol Instrumentation</a>
+		<a class='dropdown-item' href="/grad/instruments.html">Radiation Instruments</a>
+		<a class='dropdown-item' href="/grad/srf.html">Broadband Solar Calibration</a>
+		<a class='dropdown-item' href="/grad/calfacil/">Central UV Calibration Facility</a>
+		<a class='dropdown-item' href="/grad/info.html">Additional Information</a>
+	</div>
+
+
+    </div>
+</div>
+
+</li>
+</ul>
+
+    </nav>
+
+
+
+
+
+
+
+<style>
+.tzhelp {
+	margin-left: 6px;
+	cursor: pointer;
+	color: #666  !important;
+}
+
+.tzhelp:hover {
+	color: #666;
+	text-decoration: none;
+}
+
+#map_canvas {
+	width: 100%;
+	height: 512px;
+	margin: auto;
+	border: 1px solid #aaa;
+}
+
+#tzwarn {
+color: #f00 !important; 
+font-size: 20px; 
+visibility: hidden;
+}
+
+</style>
+
+<script>
+
+
+
+// get current time and update date/time boxes
+function currentTime() {
+
+	// get current date and time
+	dateObj4 = new Date();
+	nowhour = dateObj4.getHours();
+	nowmins = dateObj4.getMinutes();
+	nowsecs = dateObj4.getSeconds();
+    	thismonth = dateObj4.getMonth() + 1;
+	thisday = dateObj4.getDate();
+	thisYear = dateObj4.getYear();
+	if(thisYear <=199){
+	  thisYear=(thisYear*1)+1900;
+	}
+
+	// set date boxes to current date and time
+	$('#daybox').val(thisday);
+	$('#mosbox').val(thismonth);
+	$('#hrbox').val(zeroPad(nowhour,2));
+	$('#mnbox').val(zeroPad(nowmins,2));
+	$('#scbox').val(zeroPad(nowsecs,2));
+	$('#yearbox').val(thisYear);
+}
+
+
+$(document).ready(function() {  
+
+	$('.tzhelp').popover({
+		html: true,
+		container: 'body',
+		trigger: 'focus',
+		placement: 'auto',
+	})
+
+	// set up event handlers on input boxes
+	$('#daybox').change(function(){ inputsChanged(); });
+	$('#mosbox').change(function(){ inputsChanged(); });
+	$('#yearbox').change(function(){ inputsChanged(); });
+	$('#hrbox').change(function(){ inputsChanged(); });
+	$('#mnbox').change(function(){ inputsChanged(); });
+	$('#scbox').change(function(){ inputsChanged(); });
+	$('#latbox').change(function(){ latlongChanged(); });
+	$('#lngbox').change(function(){ latlongChanged(); });
+	$('#tz').change(function(){ inputsChanged(); });
+	$('#mkCookie').click(function(){ saveCookie(); });
+	$('#showsr').click(function(){ inputsChanged(); });
+	$('#showss').click(function(){ inputsChanged(); });
+	$('#showae').click(function(){ inputsChanged(); });
+        $('#pmbox').click(function(){ inputsChanged(); });
+	$('#currtime').click(function(){ currentTime(); inputsChanged(); });
+
+	// handle utc offset differently
+	$('#zonebox').change(function(){ tzChanged(); });
+
+	// set up event handlers for city markers radio buttons
+	$('#showworld').click(function(){ refreshMap(); });
+	$('#showus').click(function(){ refreshMap(); });
+	$('#showobs').click(function(){ refreshMap(); });
+	$('#showdata').click(function(){ refreshMap(); });
+	$('#showsurf').click(function(){ refreshMap(); });
+
+	$('#sunrisebtn').click(function() {
+		data = get_input_data(false);
+		url = "table.php?lat=" + data.lat + "&lon=" + data.lon + "&year=" + data.year
+		window.open(url, "solartable");
+	});
+
+
+	currentTime();
+
+	// get saved location cookie if available, 
+	// and set location inputs
+	cookee = GetCookie("lat");
+	lat = (cookee) ? cookee : "39.833";
+	$('#latbox').val(lat);
+        cookee = GetCookie("lng");
+        lon = (cookee) ? cookee : "-98.583";
+	$('#lngbox').val(lon);
+//	cookee = GetCookie("gmt");
+//	gmt = (cookee) ? cookee : "-6:00";
+//	$('#zonebox').val(gmt);
+//	cookee = GetCookie("tz");
+//	tz = (cookee) ? cookee : "US/Central";
+//	$('#tz').val(tz);
+
+	// do calculations on default location and date
+//	inputsChanged();
+	latlongChanged();
+
+
+/*
+const queryString = window.location.search;
+console.log(queryString);
+const urlParams = new URLSearchParams(queryString);
+lat = urlParams.get('lat')
+console.log(lat);
+lon = urlParams.get('lon')
+console.log(lon);
+datestr = urlParams.get('date')
+console.log(datestr);
+*/
+});
+
+</script>
+
+
+<H1 class="text-center">NOAA Solar Calculator</H1>
+<H4 class="text-center">Find Sunrise, Sunset, Solar Noon and Solar Position for Any Place on Earth</H4>
+  
+
+<div class="row mt-3">
+    <div class="col-sm-1">Show:</div>
+    <div class="col-sm-2">
+        <label>
+        <input TYPE="radio" NAME="showpins" ID="showworld" VALUE="World" ><span class="larger bold purple"> World Cities</span>
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <label>
+        <input TYPE="radio" NAME="showpins" ID="showus" VALUE="US" CHECKED ><span class="larger bold blue"> U.S. Cities</span>
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <label>
+        <input TYPE="radio" NAME="showpins" ID="showobs" VALUE="Obs" ><span class="larger bold gray"> GML Observatories</span>
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <label>
+        <input TYPE="radio" NAME="showpins" ID="showdata" VALUE="Site" ><span class="larger bold lightgreen"> GML Data Sites</span>
+        </label>
+    </div>
+    <div class="col-sm-3">
+        <label>
+        <input TYPE="radio" NAME="showpins" ID="showsurf" VALUE="Surfrad" ><span class="larger bold lightred"> SurfRad &amp; Solrad</span>
+        </label>
+    </div>
+
+</div>
+
+<div class="figure-caption">
+    Move the large red pin to the desired location and enter the date and time at which to calculate the sun position.
+</div>
+
+
+<div id='map_canvas'></div>
+
+<br>
+
+<div class="row">
+    <!-- location box -->
+    <div class="col-lg-6">
+        <b>Location:</b>
+        <div class="border rounded gray-bg p-3">
+            <div class="row">
+                <div class="col-sm-3 px-sm-1">
+                    <div class="form-group">
+	                <label for="latbox">Latitude:</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#latitude' target='solarglossary'>Latitude</a> - 
+An angular measurement of north-south location on Earth's
+surface. Latitude ranges from -90 at the south pole, to zero at the
+equator, to +90 at the north pole."
+ data-toggle="popover" role="button" tabindex="0"></a>
+	                <input type="text" class="form-control" id="latbox" value="39.833">
+                    </div>
+                </div>
+
+                <div class="col-sm-3 px-sm-1">
+                    <div class="form-group">
+	                <label for="lngbox">Longitude:</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#longitude' target='solarglossary'>Longitude</a> - 
+An angular measurement of east-west location on Earth's
+surface. Longitude ranges from -180 in the western hemisphere to +180 in
+the eastern, with zero at the <a href='glossary.html#primemeridian' target='solarglossary'>prime meridian</a>, which passes through
+Greenwich, England." 
+data-toggle="popover" role="button" tabindex="0"></a>
+
+
+	                <input type="text" class="form-control" id="lngbox" value="-98.583">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 px-sm-1">
+                    <div class="form-group">
+	                <label for="tz">Time Zone:</label>
+
+<a class="far fa-question-circle tzhelp" data-content="
+The <a href='timezone.html' target='solarglossary'>time zone</a> and 
+<a href='glossary.html#UTCoffset' target='solarglossary'>UTC offset</a> 
+are automatically determined when possible
+based on the given location and date. Once the location has been set,
+the user may manually override the time zone or UTC offset by selecting
+them here." 
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<a id='tzwarn' class="fas fa-exclamation-triangle tzhelp" data-content="The map could not determine a time zone for this location, so a value based on longitude has been entered.  Please set the time zone manually if you prefer."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<select name="fromzone" id="tz" class="form-control"><option value="GMT" selected>GMT</option>
+<option>Africa/Abidjan</option>
+<option>Africa/Addis_Ababa</option>
+<option>Africa/Algiers</option>
+<option>Africa/Asmera</option>
+<option>Africa/Bamako</option>
+<option>Africa/Bangui</option>
+<option>Africa/Banjul</option>
+<option>Africa/Bissau</option>
+<option>Africa/Blantyre</option>
+<option>Africa/Brazzaville</option>
+<option>Africa/Bujumbura</option>
+<option>Africa/Cairo</option>
+<option>Africa/Casablanca</option>
+<option>Africa/Asmara</option>
+<option>Africa/Accra</option>
+<option>Africa/Ceuta</option>
+<option>Africa/Conakry</option>
+<option>Africa/Dakar</option>
+<option>Africa/Dar_es_Salaam</option>
+<option>Africa/Djibouti</option>
+<option>Africa/Douala</option>
+<option>Africa/El_Aaiun</option>
+<option>Africa/Freetown</option>
+<option>Africa/Gaborone</option>
+<option>Africa/Harare</option>
+<option>Africa/Johannesburg</option>
+<option>Africa/Juba</option>
+<option>Africa/Kampala</option>
+<option>Africa/Khartoum</option>
+<option>Africa/Kigali</option>
+<option>Africa/Kinshasa</option>
+<option>Africa/Lagos</option>
+<option>Africa/Libreville</option>
+<option>Africa/Lome</option>
+<option>Africa/Luanda</option>
+<option>Africa/Lubumbashi</option>
+<option>Africa/Lusaka</option>
+<option>Africa/Malabo</option>
+<option>Africa/Maputo</option>
+<option>Africa/Maseru</option>
+<option>Africa/Mbabane</option>
+<option>Africa/Mogadishu</option>
+<option>Africa/Monrovia</option>
+<option>Africa/Nairobi</option>
+<option>Africa/Ndjamena</option>
+<option>Africa/Niamey</option>
+<option>Africa/Nouakchott</option>
+<option>Africa/Ouagadougou</option>
+<option>Africa/Porto-Novo</option>
+<option>Africa/Sao_Tome</option>
+<option>Africa/Timbuktu</option>
+<option>Africa/Tripoli</option>
+<option>Africa/Tunis</option>
+<option>Africa/Windhoek</option>
+<option>America/Adak</option>
+<option>America/Anchorage</option>
+<option>America/Anguilla</option>
+<option>America/Antigua</option>
+<option>America/Araguaina</option>
+<option>America/Argentina/Buenos_Aires</option>
+<option>America/Argentina/Catamarca</option>
+<option>America/Argentina/ComodRivadavia</option>
+<option>America/Argentina/Cordoba</option>
+<option>America/Argentina/Jujuy</option>
+<option>America/Argentina/La_Rioja</option>
+<option>America/Argentina/Mendoza</option>
+<option>America/Argentina/Rio_Gallegos</option>
+<option>America/Argentina/Salta</option>
+<option>America/Argentina/San_Juan</option>
+<option>America/Argentina/San_Luis</option>
+<option>America/Argentina/Tucuman</option>
+<option>America/Argentina/Ushuaia</option>
+<option>America/Aruba</option>
+<option>America/Asuncion</option>
+<option>America/Atikokan</option>
+<option>America/Atka</option>
+<option>America/Bahia</option>
+<option>America/Bahia_Banderas</option>
+<option>America/Barbados</option>
+<option>America/Belem</option>
+<option>America/Belize</option>
+<option>America/Blanc-Sablon</option>
+<option>America/Boa_Vista</option>
+<option>America/Bogota</option>
+<option>America/Boise</option>
+<option>America/Buenos_Aires</option>
+<option>America/Cambridge_Bay</option>
+<option>America/Campo_Grande</option>
+<option>America/Cancun</option>
+<option>America/Caracas</option>
+<option>America/Catamarca</option>
+<option>America/Cayenne</option>
+<option>America/Cayman</option>
+<option>America/Chicago</option>
+<option>America/Chihuahua</option>
+<option>America/Coral_Harbour</option>
+<option>America/Cordoba</option>
+<option>America/Costa_Rica</option>
+<option>America/Creston</option>
+<option>America/Cuiaba</option>
+<option>America/Curacao</option>
+<option>America/Danmarkshavn</option>
+<option>America/Dawson</option>
+<option>America/Dawson_Creek</option>
+<option>America/Denver</option>
+<option>America/Detroit</option>
+<option>America/Dominica</option>
+<option>America/Edmonton</option>
+<option>America/Eirunepe</option>
+<option>America/El_Salvador</option>
+<option>America/Ensenada</option>
+<option>America/Fort_Nelson</option>
+<option>America/Fort_Wayne</option>
+<option>America/Fortaleza</option>
+<option>America/Glace_Bay</option>
+<option>America/Godthab</option>
+<option>America/Goose_Bay</option>
+<option>America/Grand_Turk</option>
+<option>America/Grenada</option>
+<option>America/Guadeloupe</option>
+<option>America/Guatemala</option>
+<option>America/Guayaquil</option>
+<option>America/Guyana</option>
+<option>America/Halifax</option>
+<option>America/Havana</option>
+<option>America/Hermosillo</option>
+<option>America/Indiana/Indianapolis</option>
+<option>America/Indiana/Knox</option>
+<option>America/Indiana/Marengo</option>
+<option>America/Indiana/Petersburg</option>
+<option>America/Indiana/Tell_City</option>
+<option>America/Indiana/Vevay</option>
+<option>America/Indiana/Vincennes</option>
+<option>America/Indiana/Winamac</option>
+<option>America/Indianapolis</option>
+<option>America/Inuvik</option>
+<option>America/Iqaluit</option>
+<option>America/Jamaica</option>
+<option>America/Jujuy</option>
+<option>America/Juneau</option>
+<option>America/Kentucky/Louisville</option>
+<option>America/Kentucky/Monticello</option>
+<option>America/Knox_IN</option>
+<option>America/Kralendijk</option>
+<option>America/La_Paz</option>
+<option>America/Lima</option>
+<option>America/Los_Angeles</option>
+<option>America/Louisville</option>
+<option>America/Lower_Princes</option>
+<option>America/Maceio</option>
+<option>America/Managua</option>
+<option>America/Manaus</option>
+<option>America/Marigot</option>
+<option>America/Martinique</option>
+<option>America/Matamoros</option>
+<option>America/Mazatlan</option>
+<option>America/Mendoza</option>
+<option>America/Menominee</option>
+<option>America/Merida</option>
+<option>America/Metlakatla</option>
+<option>America/Mexico_City</option>
+<option>America/Miquelon</option>
+<option>America/Moncton</option>
+<option>America/Monterrey</option>
+<option>America/Montevideo</option>
+<option>America/Montreal</option>
+<option>America/Montserrat</option>
+<option>America/Nassau</option>
+<option>America/New_York</option>
+<option>America/Nipigon</option>
+<option>America/Nome</option>
+<option>America/Noronha</option>
+<option>America/North_Dakota/Beulah</option>
+<option>America/North_Dakota/Center</option>
+<option>America/North_Dakota/New_Salem</option>
+<option>America/Ojinaga</option>
+<option>America/Panama</option>
+<option>America/Pangnirtung</option>
+<option>America/Paramaribo</option>
+<option>America/Phoenix</option>
+<option>America/Port-au-Prince</option>
+<option>America/Port_of_Spain</option>
+<option>America/Porto_Acre</option>
+<option>America/Porto_Velho</option>
+<option>America/Puerto_Rico</option>
+<option>America/Punta_Arenas</option>
+<option>America/Rainy_River</option>
+<option>America/Rankin_Inlet</option>
+<option>America/Recife</option>
+<option>America/Regina</option>
+<option>America/Resolute</option>
+<option>America/Rio_Branco</option>
+<option>America/Rosario</option>
+<option>America/Santa_Isabel</option>
+<option>America/Santarem</option>
+<option>America/Santiago</option>
+<option>America/Santo_Domingo</option>
+<option>America/Sao_Paulo</option>
+<option>America/Scoresbysund</option>
+<option>America/Shiprock</option>
+<option>America/Sitka</option>
+<option>America/St_Barthelemy</option>
+<option>America/St_Johns</option>
+<option>America/St_Kitts</option>
+<option>America/St_Lucia</option>
+<option>America/St_Thomas</option>
+<option>America/St_Vincent</option>
+<option>America/Swift_Current</option>
+<option>America/Tegucigalpa</option>
+<option>America/Thule</option>
+<option>America/Thunder_Bay</option>
+<option>America/Tijuana</option>
+<option>America/Toronto</option>
+<option>America/Tortola</option>
+<option>America/Vancouver</option>
+<option>America/Virgin</option>
+<option>America/Whitehorse</option>
+<option>America/Winnipeg</option>
+<option>America/Yakutat</option>
+<option>America/Yellowknife</option>
+<option>Antarctica/Casey</option>
+<option>Antarctica/Davis</option>
+<option>Antarctica/DumontDUrville</option>
+<option>Antarctica/Macquarie</option>
+<option>Antarctica/Mawson</option>
+<option>Antarctica/McMurdo</option>
+<option>Antarctica/Palmer</option>
+<option>Antarctica/Rothera</option>
+<option>Antarctica/South_Pole</option>
+<option>Antarctica/Syowa</option>
+<option>Antarctica/Troll</option>
+<option>Antarctica/Vostok</option>
+<option>Arctic/Longyearbyen</option>
+<option>Asia/Aden</option>
+<option>Asia/Almaty</option>
+<option>Asia/Amman</option>
+<option>Asia/Anadyr</option>
+<option>Asia/Aqtau</option>
+<option>Asia/Aqtobe</option>
+<option>Asia/Ashgabat</option>
+<option>Asia/Ashkhabad</option>
+<option>Asia/Atyrau</option>
+<option>Asia/Baghdad</option>
+<option>Asia/Bahrain</option>
+<option>Asia/Baku</option>
+<option>Asia/Bangkok</option>
+<option>Asia/Barnaul</option>
+<option>Asia/Beirut</option>
+<option>Asia/Bishkek</option>
+<option>Asia/Brunei</option>
+<option>Asia/Calcutta</option>
+<option>Asia/Chita</option>
+<option>Asia/Choibalsan</option>
+<option>Asia/Chongqing</option>
+<option>Asia/Chungking</option>
+<option>Asia/Colombo</option>
+<option>Asia/Dacca</option>
+<option>Asia/Damascus</option>
+<option>Asia/Dhaka</option>
+<option>Asia/Dili</option>
+<option>Asia/Dubai</option>
+<option>Asia/Dushanbe</option>
+<option>Asia/Famagusta</option>
+<option>Asia/Gaza</option>
+<option>Asia/Harbin</option>
+<option>Asia/Hebron</option>
+<option>Asia/Ho_Chi_Minh</option>
+<option>Asia/Hong_Kong</option>
+<option>Asia/Hovd</option>
+<option>Asia/Irkutsk</option>
+<option>Asia/Istanbul</option>
+<option>Asia/Jakarta</option>
+<option>Asia/Jayapura</option>
+<option>Asia/Jerusalem</option>
+<option>Asia/Kabul</option>
+<option>Asia/Kamchatka</option>
+<option>Asia/Karachi</option>
+<option>Asia/Kashgar</option>
+<option>Asia/Kathmandu</option>
+<option>Asia/Katmandu</option>
+<option>Asia/Khandyga</option>
+<option>Asia/Kolkata</option>
+<option>Asia/Krasnoyarsk</option>
+<option>Asia/Kuala_Lumpur</option>
+<option>Asia/Kuching</option>
+<option>Asia/Kuwait</option>
+<option>Asia/Macao</option>
+<option>Asia/Macau</option>
+<option>Asia/Magadan</option>
+<option>Asia/Makassar</option>
+<option>Asia/Manila</option>
+<option>Asia/Muscat</option>
+<option>Asia/Nicosia</option>
+<option>Asia/Novokuznetsk</option>
+<option>Asia/Novosibirsk</option>
+<option>Asia/Omsk</option>
+<option>Asia/Oral</option>
+<option>Asia/Phnom_Penh</option>
+<option>Asia/Pontianak</option>
+<option>Asia/Pyongyang</option>
+<option>Asia/Qatar</option>
+<option>Asia/Qyzylorda</option>
+<option>Asia/Rangoon</option>
+<option>Asia/Riyadh</option>
+<option>Asia/Saigon</option>
+<option>Asia/Sakhalin</option>
+<option>Asia/Samarkand</option>
+<option>Asia/Seoul</option>
+<option>Asia/Shanghai</option>
+<option>Asia/Singapore</option>
+<option>Asia/Srednekolymsk</option>
+<option>Asia/Taipei</option>
+<option>Asia/Tashkent</option>
+<option>Asia/Tbilisi</option>
+<option>Asia/Tehran</option>
+<option>Asia/Tel_Aviv</option>
+<option>Asia/Thimbu</option>
+<option>Asia/Thimphu</option>
+<option>Asia/Tokyo</option>
+<option>Asia/Tomsk</option>
+<option>Asia/Ujung_Pandang</option>
+<option>Asia/Ulaanbaatar</option>
+<option>Asia/Ulan_Bator</option>
+<option>Asia/Urumqi</option>
+<option>Asia/Ust-Nera</option>
+<option>Asia/Vientiane</option>
+<option>Asia/Vladivostok</option>
+<option>Asia/Yakutsk</option>
+<option>Asia/Yangon</option>
+<option>Asia/Yekaterinburg</option>
+<option>Asia/Yerevan</option>
+<option>Atlantic/Azores</option>
+<option>Atlantic/Bermuda</option>
+<option>Atlantic/Canary</option>
+<option>Atlantic/Cape_Verde</option>
+<option>Atlantic/Faeroe</option>
+<option>Atlantic/Faroe</option>
+<option>Atlantic/Jan_Mayen</option>
+<option>Atlantic/Madeira</option>
+<option>Atlantic/Reykjavik</option>
+<option>Atlantic/South_Georgia</option>
+<option>Atlantic/St_Helena</option>
+<option>Atlantic/Stanley</option>
+<option>Australia/ACT</option>
+<option>Australia/Adelaide</option>
+<option>Australia/Brisbane</option>
+<option>Australia/Broken_Hill</option>
+<option>Australia/Canberra</option>
+<option>Australia/Currie</option>
+<option>Australia/Darwin</option>
+<option>Australia/Eucla</option>
+<option>Australia/Hobart</option>
+<option>Australia/LHI</option>
+<option>Australia/Lindeman</option>
+<option>Australia/Lord_Howe</option>
+<option>Australia/Melbourne</option>
+<option>Australia/NSW</option>
+<option>Australia/North</option>
+<option>Australia/Perth</option>
+<option>Australia/Queensland</option>
+<option>Australia/South</option>
+<option>Australia/Sydney</option>
+<option>Australia/Tasmania</option>
+<option>Australia/Victoria</option>
+<option>Australia/West</option>
+<option>Australia/Yancowinna</option>
+<option>Brazil/Acre</option>
+<option>Brazil/DeNoronha</option>
+<option>Brazil/East</option>
+<option>Brazil/West</option>
+<option>CET</option>
+<option>CST6CDT</option>
+<option>Canada/Atlantic</option>
+<option>Canada/Central</option>
+<option>Canada/Eastern</option>
+<option>Canada/Mountain</option>
+<option>Canada/Newfoundland</option>
+<option>Canada/Pacific</option>
+<option>Canada/Saskatchewan</option>
+<option>Canada/Yukon</option>
+<option>Chile/Continental</option>
+<option>Chile/EasterIsland</option>
+<option>Cuba</option>
+<option>EET</option>
+<option>EST</option>
+<option>EST5EDT</option>
+<option>Egypt</option>
+<option>Eire</option>
+<option>Etc/GMT</option>
+<option>Etc/GMT+0</option>
+<option>Etc/GMT+1</option>
+<option>Etc/GMT+10</option>
+<option>Etc/GMT+11</option>
+<option>Etc/GMT+12</option>
+<option>Etc/GMT+2</option>
+<option>Etc/GMT+3</option>
+<option>Etc/GMT+4</option>
+<option>Etc/GMT+5</option>
+<option>Etc/GMT+6</option>
+<option>Etc/GMT+7</option>
+<option>Etc/GMT+8</option>
+<option>Etc/GMT+9</option>
+<option>Etc/GMT-0</option>
+<option>Etc/GMT-1</option>
+<option>Etc/GMT-10</option>
+<option>Etc/GMT-11</option>
+<option>Etc/GMT-12</option>
+<option>Etc/GMT-13</option>
+<option>Etc/GMT-14</option>
+<option>Etc/GMT-2</option>
+<option>Etc/GMT-3</option>
+<option>Etc/GMT-4</option>
+<option>Etc/GMT-5</option>
+<option>Etc/GMT-6</option>
+<option>Etc/GMT-7</option>
+<option>Etc/GMT-8</option>
+<option>Etc/GMT-9</option>
+<option>Etc/GMT0</option>
+<option>Etc/Greenwich</option>
+<option>Etc/UCT</option>
+<option>Etc/UTC</option>
+<option>Etc/Universal</option>
+<option>Etc/Zulu</option>
+<option>Europe/Amsterdam</option>
+<option>Europe/Andorra</option>
+<option>Europe/Astrakhan</option>
+<option>Europe/Athens</option>
+<option>Europe/Belfast</option>
+<option>Europe/Belgrade</option>
+<option>Europe/Berlin</option>
+<option>Europe/Bratislava</option>
+<option>Europe/Brussels</option>
+<option>Europe/Bucharest</option>
+<option>Europe/Budapest</option>
+<option>Europe/Busingen</option>
+<option>Europe/Chisinau</option>
+<option>Europe/Copenhagen</option>
+<option>Europe/Dublin</option>
+<option>Europe/Gibraltar</option>
+<option>Europe/Guernsey</option>
+<option>Europe/Helsinki</option>
+<option>Europe/Isle_of_Man</option>
+<option>Europe/Istanbul</option>
+<option>Europe/Jersey</option>
+<option>Europe/Kaliningrad</option>
+<option>Europe/Kiev</option>
+<option>Europe/Kirov</option>
+<option>Europe/Lisbon</option>
+<option>Europe/Ljubljana</option>
+<option>Europe/London</option>
+<option>Europe/Luxembourg</option>
+<option>Europe/Madrid</option>
+<option>Europe/Malta</option>
+<option>Europe/Mariehamn</option>
+<option>Europe/Minsk</option>
+<option>Europe/Monaco</option>
+<option>Europe/Moscow</option>
+<option>Europe/Nicosia</option>
+<option>Europe/Oslo</option>
+<option>Europe/Paris</option>
+<option>Europe/Podgorica</option>
+<option>Europe/Prague</option>
+<option>Europe/Riga</option>
+<option>Europe/Rome</option>
+<option>Europe/Samara</option>
+<option>Europe/San_Marino</option>
+<option>Europe/Sarajevo</option>
+<option>Europe/Saratov</option>
+<option>Europe/Simferopol</option>
+<option>Europe/Skopje</option>
+<option>Europe/Sofia</option>
+<option>Europe/Stockholm</option>
+<option>Europe/Tallinn</option>
+<option>Europe/Tirane</option>
+<option>Europe/Tiraspol</option>
+<option>Europe/Ulyanovsk</option>
+<option>Europe/Uzhgorod</option>
+<option>Europe/Vaduz</option>
+<option>Europe/Vatican</option>
+<option>Europe/Vienna</option>
+<option>Europe/Vilnius</option>
+<option>Europe/Volgograd</option>
+<option>Europe/Warsaw</option>
+<option>Europe/Zagreb</option>
+<option>Europe/Zaporozhye</option>
+<option>Europe/Zurich</option>
+<option>GB</option>
+<option>GB-Eire</option>
+<option>GMT</option>
+<option>GMT+0</option>
+<option>GMT-0</option>
+<option>GMT0</option>
+<option>Greenwich</option>
+<option>HST</option>
+<option>Hongkong</option>
+<option>Iceland</option>
+<option>Indian/Antananarivo</option>
+<option>Indian/Chagos</option>
+<option>Indian/Christmas</option>
+<option>Indian/Cocos</option>
+<option>Indian/Comoro</option>
+<option>Indian/Kerguelen</option>
+<option>Indian/Mahe</option>
+<option>Indian/Maldives</option>
+<option>Indian/Mauritius</option>
+<option>Indian/Mayotte</option>
+<option>Indian/Reunion</option>
+<option>Iran</option>
+<option>Israel</option>
+<option>Jamaica</option>
+<option>Japan</option>
+<option>Kwajalein</option>
+<option>Libya</option>
+<option>MET</option>
+<option>MST</option>
+<option>MST7MDT</option>
+<option>Mexico/BajaNorte</option>
+<option>Mexico/BajaSur</option>
+<option>Mexico/General</option>
+<option>NZ</option>
+<option>NZ-CHAT</option>
+<option>Navajo</option>
+<option>PRC</option>
+<option>PST8PDT</option>
+<option>Pacific/Apia</option>
+<option>Pacific/Auckland</option>
+<option>Pacific/Bougainville</option>
+<option>Pacific/Chatham</option>
+<option>Pacific/Chuuk</option>
+<option>Pacific/Easter</option>
+<option>Pacific/Efate</option>
+<option>Pacific/Enderbury</option>
+<option>Pacific/Fakaofo</option>
+<option>Pacific/Fiji</option>
+<option>Pacific/Funafuti</option>
+<option>Pacific/Galapagos</option>
+<option>Pacific/Gambier</option>
+<option>Pacific/Guadalcanal</option>
+<option>Pacific/Guam</option>
+<option>Pacific/Honolulu</option>
+<option>Pacific/Johnston</option>
+<option>Pacific/Kiritimati</option>
+<option>Pacific/Kosrae</option>
+<option>Pacific/Kwajalein</option>
+<option>Pacific/Majuro</option>
+<option>Pacific/Marquesas</option>
+<option>Pacific/Midway</option>
+<option>Pacific/Nauru</option>
+<option>Pacific/Niue</option>
+<option>Pacific/Norfolk</option>
+<option>Pacific/Noumea</option>
+<option>Pacific/Pago_Pago</option>
+<option>Pacific/Palau</option>
+<option>Pacific/Pitcairn</option>
+<option>Pacific/Pohnpei</option>
+<option>Pacific/Ponape</option>
+<option>Pacific/Port_Moresby</option>
+<option>Pacific/Rarotonga</option>
+<option>Pacific/Saipan</option>
+<option>Pacific/Samoa</option>
+<option>Pacific/Tahiti</option>
+<option>Pacific/Tarawa</option>
+<option>Pacific/Tongatapu</option>
+<option>Pacific/Truk</option>
+<option>Pacific/Wake</option>
+<option>Pacific/Wallis</option>
+<option>Pacific/Yap</option>
+<option>Poland</option>
+<option>Portugal</option>
+<option>ROC</option>
+<option>ROK</option>
+<option>Singapore</option>
+<option>Turkey</option>
+<option>UCT</option>
+<option>US/Alaska</option>
+<option>US/Aleutian</option>
+<option>US/Arizona</option>
+<option>US/Central</option>
+<option>US/East-Indiana</option>
+<option>US/Eastern</option>
+<option>US/Hawaii</option>
+<option>US/Indiana-Starke</option>
+<option>US/Michigan</option>
+<option>US/Mountain</option>
+<option>US/Pacific</option>
+<option>US/Pacific-New</option>
+<option>US/Samoa</option>
+<option>UTC</option>
+<option>Universal</option>
+<option>W-SU</option>
+<option>WET</option>
+<option>Zulu</option>
+</select>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 px-sm-1 order-sm-2">
+	                <label for="zonebox">UTC Offset: </label>
+
+<span class="far fa-question-circle tzhelp" data-content="
+The <a href='glossary.html#UTCoffset' target='solarglossary'>UTC offset</a> 
+is automatically determined when possible, based on the
+given time zone and date. The user can manually override this value by
+entering it here after location, time zone and date have been set."
+data-toggle="popover" role="button" tabindex="0"></span>
+
+<span id='wait' style='visibility: hidden' class='small' >
+           <img src="wait_tiny.gif" alt="" style='margin: 3px;' > Working...
+</span>
+
+	                <input type="text" class="form-control" id="zonebox">
+		</div>
+                <div class="col-sm-6 px-sm-1 mt-3 order-sm-1">
+		    <button type="submit" class="btn btn-outline-dark" id="mkCookie" name="mkCookie" >Save Location</button>
+		</div>
+	    </div>
+        </div>  <!-- end box -->
+    </div>  <!-- end col-sm-6-->
+
+    <div class="col-lg-6">
+
+        <b>Date:</b>
+        <div class="border rounded gray-bg p-3">
+            <div class="row">        <!-- row with date, month, year -->
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="daybox" >Day: </label>
+                        <select NAME="day" ID="daybox" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="mosbox" >Month: </label>
+                        <select NAME="mos" ID="mosbox" class="form-control">
+                        <option value='1'>Jan</option>
+                        <option value='2'>Feb</option>
+                        <option value='3'>Mar</option>
+                        <option value='4'>Apr</option>
+                        <option value='5'>May</option>
+                        <option value='6'>Jun</option>
+                        <option value='7'>Jul</option>
+                        <option value='8'>Aug</option>
+                        <option value='9'>Sep</option>
+                        <option value='10'>Oct</option>
+                        <option value='11'>Nov</option>
+                        <option value='12'>Dec</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="yearbox" >Year: </label>
+                        <input TYPE="text" maxlength=4 ID="yearbox" NAME="year" VALUE="2015" class="form-control">
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="row">  <!-- row with hour, minute, second -->
+                <div class="col-sm-12">
+                    <div class="form-group" style="margin-bottom: 2px;">
+                        <label for="hrbox">Local Time: </label>
+                        <div class="form-inline">
+                            <input TYPE="text" ID="hrbox" NAME="hour" VALUE="15" class="form-control" style="width: 3rem;">
+                            &nbsp;:&nbsp;
+			    <label class="sr-only" for="mnbox">Minute</label>
+                            <input TYPE="text" ID="mnbox" NAME="mins" VALUE="20" class="form-control" style="width: 3rem;">
+                            &nbsp;:&nbsp;
+			    <label class="sr-only" for="scbox">Second</label>
+                            <input TYPE="text" ID="scbox" NAME="secs" VALUE="30" class="form-control" style="width: 3rem;">
+                            <label class="mr-4 ml-2"> <input type="checkbox" id="pmbox" name="pm">&nbsp; PM </label>
+		    <button type="submit" class="btn btn-outline-dark mt-3 mt-sm-0" id="currtime" name="currtime" >Use Current Time</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  <!-- end box -->
+    </div>  <!-- end col-sm-6 -->
+</div>  <!-- end row -->
+
+<!-- box with results -->
+<br>
+<b>Result</b>
+<div class="border rounded gray-bg p-3 mb-3">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
+        <div class="col">
+            <div class="form-group">
+<!--	        <label for="eqtbox" class='mb-0'> <a href="./glossary.html#equationoftime" target="_blank">Equation of Time</a></label> -->
+	        <label for="eqtbox" class='mb-0'>Equation of Time</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#equationoftime' target='solarglossary'>Equation of time</a> - an astronomical term accounting for changes in the time of <a href='glossary.html#solarnoon' target='solarglossary'>solar noon</a> for a given location over the course of a year. Earth's elliptical orbit and Kepler's law of equal areas in equal times are the culprits behind this phenomenon."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<!-- popover can't be inside label -->
+<div class="mb-2">
+ (minutes):
+</div>
+
+	        <input TYPE="text" class="form-control" ID="eqtbox" NAME="eqTime" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+	        <label for='sdbox' class='mb-0'>Solar Declination</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#solardeclination' target='solarglossary'>Solar Declination</a> - The <a href='glossary.html#declination' target='solarglossary'>declination</a> of the sun.  The solar declination varies from -23.44&deg; at the (northern hemisphere) winter <a href='glossary.html#solstice' target='solarglossary'>solstice</a>, through 0&deg; at the vernal <a href='glossary.html#equinox' target='solarglossary'>equinox</a>, to +23.44&deg; at the summer solstice.  The variation in solar declination is the astronomical description of the sun going south (in the northern hemisphere) for the winter. "
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<div class="mb-2">
+ (in&deg;):
+</div>
+
+	        <input TYPE="text" class="form-control" ID="sdbox" NAME="solarDec"  readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+	        <label for="noonbox" class="mb-0">Solar Noon</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#solarnoon' target='solarglossary'>Solar Noon</a> - 
+Defined for a given day for a specific <a href='glossary.html#longitude' target='solarglossary'>longitude</a>,
+it is the time when the sun crosses the <a href='glossary.html#meridian' target='solarglossary'>meridian</a>
+of the observer's location.  At solar noon, a shadow cast by a vertical
+pole will point either directly north or directly south, depending on the
+observer's <a href='glossary.html#latitude' target='solarglossary'>latitude</a> and the time of year."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<div class="mb-2">
+(hh:mm:ss):
+</div>
+
+	        <input TYPE="text" class="form-control" ID="noonbox" NAME="solnoon" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+	        <label for="risebox" class="mb-0">Apparent Sunrise</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#apparentsunrise' target='solarglossary'>Apparent Sunrise</a> - Due to
+<a href='glossary.html#atmosphericrefraction' target='solarglossary'>atmospheric refraction</a>, sunrise occurs
+shortly before the sun crosses above the horizon.  Light from
+the sun is bent, or refracted, as it enters earth's atmosphere.
+This effect causes the <i>apparent</i> sunrise to be earlier than the actual
+sunrise." 
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<div class="mb-2">
+ (hh:mm):
+</div>
+	        <input TYPE="text" class="form-control" ID="risebox" NAME="sunrise" readonly>
+		<label class="lightgreen mt-2"><input TYPE="checkbox" ID="showsr" NAME="srshow"> Show Sunrise</label>
+<a class="far fa-question-circle tzhelp" data-content="
+Checking this box will display a line on the map showing the azimuth
+direction of sunrise, if it exists for the given date and location."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+	        <label for="setbox" class="mb-0">Apparent Sunset</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#apparentsunrise' target='solarglossary'>Apparent Sunset</a> - 
+Due to <a href='glossary.html#atmosphericrefraction' target='solarglossary'>atmospheric refraction</a>, sunset occurs
+shortly after the sun crosses below the horizon.  Light from
+the sun is bent, or refracted, as it enters earth's atmosphere.
+This effect causes the <i>apparent</i> sunset to be later than the actual
+sunset."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<div class="mb-2">
+(hh:mm):
+</div>
+
+	        <input TYPE="text" class="form-control" ID="setbox" NAME="sunset" readonly>
+		<label class="lightred mt-2"><input TYPE="checkbox" ID="showss" NAME="ssshow" > Show Sunset</label>
+<a class="far fa-question-circle tzhelp" data-content="
+Checking this box will display a line on the map showing the azimuth
+direction of sunset, if it exists for the given date and location."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+	        <label for="azbox" class="mb-0">Az/El</label>
+<a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#azimuthelevation'  target='solarglossary'>Azimuth/Elevation</a> -
+An angular coordinate system for locating
+positions in the sky.  Azimuth is measured clockwise from true north
+to the point on the horizon
+directly below the object.  Elevation is measured vertically from that
+point on the horizon up to the object." 
+data-toggle="popover" role="button" tabindex="0"></a>
+
+<div class="mb-2">
+(in &deg;) at Local Time:
+</div>
+
+                <div class="row">
+		    <div class="col-6 px-lg-1">
+                        <input TYPE="text" class="form-control" ID="azbox" NAME="az" readonly style="padding:6px 6px;">
+                    </div>
+                    <div class="col-6 px-lg-1">
+                        <label class="sr-only" for="elbox">Elevation</label>
+                        <input TYPE="text" class="form-control" ID="elbox" NAME="el" readonly style="padding:6px 6px;">
+                    </div>
+                </div>
+		<label class="mediummagenta mt-2"><input TYPE="checkbox" ID="showae" NAME="aeshow" > Show Azimuth</label>
+<a class="far fa-question-circle tzhelp" data-content="
+Checking this box will display a line on the map showing the azimuth
+direction of the sun for the given date, time and location."
+data-toggle="popover" role="button" tabindex="0"></a>
+
+            </div>
+        </div>
+    </div>	
+</div>	
+
+<h3>Sunrise/Sunset Tables</h3>
+
+<p>Tables with times of sunrise, sunset and solar noon for each day of the year for the location and year specified in the form above can be created by clicking on the button below.</p>
+
+<div class="border rounded gray-bg p-3">
+        <button id='sunrisebtn' class='btn btn-large btn-success'>Create Sunrise/Sunset Tables for the Year</button>
+<br>
+<span class='italic small'>Tables will open up in a new tab/window</span>
+</div>
+
+<br>
+<h3><a href="calcdetails.html">Interested in Doing Your Own Calculations?</a></h3>
+Details about the calculations and spreadsheets that can be used to calculate solar data are available on the <a href="calcdetails.html"><b>solar calculation details</b></a> page.
+
+
+
+
+<hr>
+<h4>Having Trouble?</h4>
+
+<ul>
+<li>
+Check your Time Zone -- Is the time zone set correctly for this
+location? Our calculator attempts to determine the correct time zone for
+the given location and date, but because time zones and the start and
+end dates of Daylight Saving Time sometimes change, this value may not
+be accurate for historical or future dates.
+</li>
+
+<li>
+Click the Show Sunrise, Show Sunset and Show Azimuth checkboxes to
+display color-coded lines on the map indicating the direction of
+sunrise, sunset and solar position based on the Local Time and Date entered.
+</li>
+
+<li>
+This solar calculator is provided for research and entertainment
+purposes only. Due to variable atmospheric conditions and uncertainty
+inherent in the algorithms used, the actual observed values of sunrise,
+sunset and solar position may differ from the results presented here.
+</li>
+
+</ul>
+
+<h4>Questions?</h4>
+Feel free to write to us with any questions or comments at <a href="mailto:webmaster.gml&#64;noaa.gov">Webmaster</a>.
+
+
+<hr>
+<h4>Solar Calculation Resources:</h4>
+<div class="larger">
+<div class="row">
+    <div class="col-sm-4">
+	<ul>
+	<li><a href="./index.html">NOAA Solar Calculator</a></li>
+	<li><a href="./sunrise.html">Old Sunrise Calculator</a></li>
+	<li><a href="./azel.html">Old Solar Pos Calculator</a></li>
+	</ul>
+    </div>
+
+    <div class="col-sm-4">
+	<ul>
+	<li><a href="./sollinks.html">Solar Calculator Links</a></li>
+	<li><a href="./glossary.html">Solar Calculator Glossary</a></li>
+	</ul>
+    </div>
+
+    <div class="col-sm-4">
+	<ul>
+	<li><a href="./calcdetails.html">Calculation Details</a></li>
+	<li><a href="./timezone.html">Time Zone Table</a></li>
+	</ul>
+    </div>
+</div>
+</div>
+
+
+
+<noscript><b>JavaScript must be enabled in order for you to use the map.</b> 
+However, it seems JavaScript is either disabled or not supported by your browser. 
+To view Google Maps, enable JavaScript by changing your browser options, and then 
+try again.
+</noscript>
+
+
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+          crossorigin=""></script>
+	<script src="https://unpkg.com/esri-leaflet@2.5.1/dist/esri-leaflet.js"
+          integrity="sha512-q7X96AASUF0hol5Ih7AeZpRF6smJS55lcvy+GLWzJfZN+31/BQ8cgNx2FGF+IQSA4z2jHwB20vml+drmooqzzQ=="
+          crossorigin=""></script>
+
+
+        <link rel='stylesheet' href='/dv/site/css/L.Control.MousePosition.css' />
+        <link rel='stylesheet' href='/dv/site/css/L.Control.ZoomMin.css' media='screen'>
+        <link rel='stylesheet' href='/dv/site/css/L.Control.Zoomslider.css' media='screen'>
+	<script src='/dv/site/js/L.Control.MousePosition.js'></script>
+        <script src='/dv/site/js/L.Control.ZoomMin.js'></script>
+        <script src='/dv/site/js/L.Control.Zoomslider.js'></script>
+
+        <script src='/dv/site/js/make_map.js'></script>
+
+
+
+<script src='Leaflet.Geodesic.js'></script>
+<script src="moment.min.js"></script>
+<script src="moment-timezone-with-data-1970-2030.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="emaps.js"></script>
+<script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
+
+</div>
+
+
+<footer class="footer" role="contentinfo">
+
+
+<nav class="navbar navbar-expand-md navbar-footer" >
+
+  <div class="container">
+    <ul class="navbar-nav">
+
+	<li class="footer-content"><a class="nav-link" href="/about/research.html">Research</a></li>
+	<li class="footer-content"><a class="nav-link" href="/dv/data.html">Data</a></li>
+	<li class="footer-content"><a class="nav-link" href="/obop/">Observatory Operations</a></li>
+	<li class="footer-content"><a class="nav-link" href="/education/">Education</a></li>
+	<li class="footer-content"><a class="nav-link" href="/news/">News</a></li>
+	<li class="footer-content"><a class="nav-link" href="/publications/browse.php">Publications</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+  <div class="footer-secondary_section">
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <img class="footer-logo" src="/webdata/logos/noaa_small.png" alt="NOAA logo">
+        <p class="footer-logo-heading" style="margin-top: 0;">
+           <a href="http://www.esrl.noaa.gov/">Earth System Research Laboratories</a><br>
+           <a href="/">Global Monitoring Laboratory</a>
+        </p>
+
+        <p><a href="https://www.noaa.gov/protecting-your-privacy">Privacy Policy</a> &nbsp;| &nbsp;
+           <a href="https://www.noaa.gov/accessibility">Accessibility</a> &nbsp;| &nbsp;
+           <a href="/about/disclaimer.html">Disclaimer</a> &nbsp;| &nbsp;
+           <a href="https://www.usa.gov">Usa.gov</a>
+        </p>
+      </div>
+      <div class="col-md-4 footer-right-section">
+<p>
+                <a href="https://www.facebook.com/NOAAESRL" title="ESRL Facebook" aria-label="ESRL Facebook">&nbsp;<i class="fab fa-facebook-f fa-2x social"></i></a>
+                <a href="https://twitter.com/NOAA_ESRL" title="ESRL Twitter" aria-label="ESRL Twitter"> <i class="fab fa-2x fa-twitter social"></i></a>
+                <a href="https://www.youtube.com/user/NOAAESRL" title="ESRL Youtube Channel" aria-label="ESRL Youtube"> <i class="fab fa-2x fa-youtube social"></i></a>
+                <a href="https://www.flickr.com/photos/noaa_esrl" title="ESRL Flickr" aria-label="ESRL Flickr"> <i class="fab fa-2x fa-flickr social"></i></a>
+
+</p>
+          <p><a href="/sitemap">Site Contents</a></p>
+          <p><a href="/about/contacts.html">Contact Us</a> &nbsp;| &nbsp;<a href="mailto:webmaster.gml@noaa.gov">Webmaster</a></p>
+
+      </div>
+    </div>
+        <ol class="breadcrumb hidden-xs" id="minor_footer">
+                <li class="breadcrumb-item" ><a href="https://www.commerce.gov/">U.S. Department of Commerce</a></li>
+                <li class="breadcrumb-item"><a href="http://www.noaa.gov/">National Oceanic &amp; Atmospheric Administration</a></li>
+                <li class="breadcrumb-item"><a href="https://research.noaa.gov/">NOAA Research</a></li>
+        </ol>
+
+  </div>
+  </div>
+
+</footer>
+
+</body>
+
+
+</html>
+
