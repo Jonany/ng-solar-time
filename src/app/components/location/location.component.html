@@ -1,0 +1,41 @@
+<div class="col-lg-6">
+  <b>Location:</b>
+  <div class="border rounded gray-bg p-3">
+    <div class="row">
+      <div class="col-sm-3 px-sm-1">
+        <div class="form-group">
+          <label for="latbox">Latitude:</label>
+          <a class="far fa-question-circle tzhelp" data-content="
+An angular measurement of north-south location on Earth's
+surface. Latitude ranges from -90 at the south pole, to zero at the
+equator, to +90 at the north pole." data-toggle="popover" role="button" tabindex="0"></a>
+          
+          <input type="text" class="form-control" id="latbox" value="39.833" (change)="locationChanged()">
+        </div>
+      </div>
+
+      <div class="col-sm-3 px-sm-1">
+        <div class="form-group">
+          <label for="lngbox">Longitude:</label>
+          <a class="far fa-question-circle tzhelp" data-content="
+<a href='glossary.html#longitude' target='solarglossary'>Longitude</a> - 
+An angular measurement of east-west location on Earth's
+surface. Longitude ranges from -180 in the western hemisphere to +180 in
+the eastern, with zero at the <a href='glossary.html#primemeridian' target='solarglossary'>prime meridian</a>, which passes through
+Greenwich, England." data-toggle="popover" role="button" tabindex="0"></a>
+
+          <input type="text" class="form-control" id="lngbox" value="-98.583" (change)="locationChanged()">
+        </div>
+      </div>
+
+      <div class="col-sm-6 px-sm-1">
+        <div class="form-group">
+          <label for="tz">Time Zone:</label>
+          <select name="fromzone" id="tz" class="form-control" (change)="locationChanged()">
+            <!-- <option *ngFor="let timeZone in TimeZones">{{timeZone}}</option> -->
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

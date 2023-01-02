@@ -596,12 +596,11 @@ function get_input_data(adjusttz) {
 	var mins = date.hour*60 + date.minute + date.second/60.0
 	var lat = parseFloat($('#latbox').val())
 	var lng = parseFloat($('#lngbox').val())
-        var tzname = $('#tz').val();
+  var tzname = $('#tz').val();
 
-        // get utc offset for selected timezone and date
-        if (adjusttz == false) {
+  // get utc offset for selected timezone and date
+  if (adjusttz == false) {
 		var utcoffset = $('#zonebox').val()
-
 	} else {
 		// make sure utc offset is set correctly
 		// (may have changed entered day value if it was out of range)

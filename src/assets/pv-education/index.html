@@ -1,0 +1,116 @@
+<div id="floating-panel"><input id="address" size="30" type="textbox" value="Sydney, NSW" /> <input
+  id="submit" type="button" value="Get Location Details" /></div>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8, center: { lat: -34.397, lng: 150.644 }
+  });
+  var geocoder = new google.maps.Geocoder();
+  document.getElementById('submit').addEventListener('click', function () {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({ 'address': address }, function (results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+      document.getElementById("form_solar_time").elements.namedItem("latitude").value = results[0].geometry.location.lat().toFixed(4);
+      document.getElementById("form_solar_time").elements.namedItem("longitude").value = results[0].geometry.location.lng().toFixed(4);
+      var marker = new google.maps.Marker({
+        map: resultsMap, position: results[0].geometry.location
+      });
+      getTZ();
+    } else {
+      alert('Location lookup failed because for the following reason: ' + status);
+    }
+  });
+}
+
+function getTZ() {
+  var f = document.getElementById("form_solar_time");
+  lat = f.latitude.value - 0;
+  lng = f.longitude.value - 0;
+  var targetDate = new Date() // Current date/time of user computer
+  var timestamp = targetDate.getTime() / 1000 + targetDate.getTimezoneOffset() * 60;
+  var apikey = 'AIzaSyApccG5rS2Pg5K4n1kfeYAXOWcxiuu9vKE'
+  var apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + lat + ' ,' + lng + '&timestamp=' + timestamp + '&key=' + apikey
+  console.log(apicall);
+  var xhr = new XMLHttpRequest() // create new XMLHttpRequest2 object
+  xhr.open('GET', apicall) // open GET request
+  xhr.onload = function () {
+    if (xhr.status === 200) { // if Ajax request successful
+      var output = JSON.parse(xhr.responseText) // convert returned JSON string to JSON object
+      console.log(xhr.responseText) // log API return status for debugging purposes
+      if (output.status == 'OK') { // if API reports everything was returned successfully
+        console.log(output);
+        f.time_zone.value = output.rawOffset / 3600;
+        toSolarTime()
+      }
+    } else {
+      alert('Request failed.  Returned status of ' + xhr.status)
+    }
+  }
+  xhr.send() // send request
+}
+
+function toSolarTime() {
+  var f = document.getElementById("form_solar_time");
+  lat = f.latitude.value - 0;
+  longitude = f.longitude.value - 0;
+  dayNo = f.day_no.value - 0;
+  time_zone = f.time_zone.value - 0;
+  local_hour = f.local_hour.value - 0;
+  local_min = f.local_min.value - 0;
+  let B = 360 / 365 * (dayNo - 81) * Math.PI / 180;
+  let EoT = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+  LSTM = 15 * time_zone;
+  time_correction = EoT + 4 * (longitude - LSTM);
+  LST = local_hour + time_correction / 60 + local_min / 60;
+  HRA = 15 * LST;
+  f.equation_of_time.value = EoT.toFixed(2);
+  f.LSTM.value = LSTM.toFixed(2);
+  f.time_correction.value = time_correction.toFixed(2);
+  var n = new Date(0, 0);
+  n.setMinutes(+LST * 60);
+  f.LST.value = n.toTimeString().slice(0, 5);
+  f.hour_angle.value = HRA.toFixed(2);
+}
+
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApccG5rS2Pg5K4n1kfeYAXOWcxiuu9vKE&callback=initMap"></script>
+<p>Enter a location above to get its longitude and time zone. Once the time zone is determined, the
+latitude is not needed when calculating the local solar time. The longitude and time zone can also be
+entered directly without having to use the lookup. Standard time is used and there is no correction for
+Daylight Savings.</p>
+<form id="form_solar_time" name="form_solar_time" oninput="toSolarTime()">
+<div class="row">
+  <fieldset class="calculator">
+    <legend> Local Solar Time</legend>
+    </p>
+    <div class="large-6 columns">
+      <h6>Input Parameters</h6>
+      <p><label class="inputParameters">longitude <input name="longitude" type="number"
+            value="150" /></label> <label class="inputParameters">timezone <input name="time_zone"
+            type="number" value="10" /></label> <label class="inputParameters">Day of year, <input
+            name="day_no" type="number" value="5" /> </label> <label class="inputParameters">Local Time
+          - Standard (hours) <input name="local_hour" type="number" value="12" /></label> <label
+          class="inputParameters">Local Time (min) <input name="local_min" type="number"
+            value="30" /></label>
+    </div>
+    <div class="large-6 columns">
+      <h6>Results</h6>
+      <p>Equation of Time <output name="equation_of_time">X</output> minutes.<br />
+        Local Standard Time Meridian: <output name="LSTM">X</output> °<br />
+        Time Correction: <output name="time_correction">X</output> minutes<br />
+        Hour Angle <output name="hour_angle">X</output> °<br />
+        Local Solar Time <output name="LST">X</output> (HH:MM)<br />
+        latitude <output name="latitude">X</output> ° (not needed)</p>
+    </div>
+    <p>
+  </fieldset>
+</div>
+</form>
